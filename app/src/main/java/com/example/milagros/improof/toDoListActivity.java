@@ -3,11 +3,11 @@ package com.example.milagros.improof;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Character extends AppCompatActivity {
+public class toDoListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_character);
+        setContentView(R.layout.activity_to_do_list);
     }
 }
