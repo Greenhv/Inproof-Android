@@ -9,11 +9,22 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.milagros.improof.HabitsActivity">
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-    </ListView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:paddingBottom="20dp">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="254dp"
+            android:layout_marginBottom="173dp" />
+    </ScrollView>
+
     <Button
         android:id="@+id/todo"
         android:layout_width="match_parent"
@@ -24,6 +35,5 @@
         android:background="@color/colorlog"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large.Inverse"
         android:text="@string/createHabit" />
-
 
 </RelativeLayout>
