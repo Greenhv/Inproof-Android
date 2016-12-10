@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Improof</string>
+    <string name="signIn" translatable="false">Sign in</string>
+    <string name="login">Log in</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <!-- String para el main-->
+    <string name="toDo">To Do List</string>
+    <string name="stats">Get Stats</string>
+    <string name="mychar">My Character</string>
+    <string name="goals">Set Goals</string>
+    <string name="habits">Improve your Habits</string>
+    <string name="proyects">Manage My Projects</string>
+
+    <!-- String para Work-->
+    <string name="work">Work</string>
+    <string name="title_activity_work">Work</string>
+    <string name="start_working">Start</string>
+    <string name="stop_working">Surrender</string>
+    <string name="formatTimer">MM:SS</string>
+    <string name="sesion">SESSION WORKED TODAY</string>
+    <string name="milestone">MILESTONE</string>
+    <string name="project">PROJECT</string>
+
+    <!-- String para Projects-->
+    <string name="createproject">Start New Project</string>
+    <string name="acept">Accept</string>
+    <string name="cancel">Cancel</string>
+
+
+</resources>
