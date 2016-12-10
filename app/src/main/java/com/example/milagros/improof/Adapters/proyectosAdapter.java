@@ -26,16 +26,9 @@ public class proyectosAdapter extends ArrayAdapter<Proyecto> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View itemView = null;
-
-        if (itemView == null) {
-
-            LayoutInflater inflater = (LayoutInflater) parent.getContext()
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            itemView = inflater.inflate(R.layout.list_proyectview, null);
-        } else {
-            itemView = convertView;
-        }
-
+        LayoutInflater inflater = (LayoutInflater) parent.getContext()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        itemView = inflater.inflate(R.layout.list_proyectview, null);
 
         return itemView;
     }
