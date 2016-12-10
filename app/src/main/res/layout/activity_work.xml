@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_margin="15dp"
-    tools:context="com.example.milagros.improof.Work">
+    tools:context="com.example.milagros.improof.WorkActivity">
     <Chronometer
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
