@@ -64,11 +64,36 @@
                     android:progressTint="@color/mana"
                     android:progress="90"
                     style="?android:attr/progressBarStyleHorizontal"/>
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
-                    android:text="Level"/>
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:text="Level"/>
+                    <TextView
+                        android:id="@+id/gold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/coin_gold"
+                        android:text="0"/>
+                    <TextView
+                        android:id="@+id/silver"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/coin_silver"
+                        android:text="0"/>
+                    <TextView
+                        android:id="@+id/copper"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/coin_bronze"
+                        android:text="0"/>
+
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
