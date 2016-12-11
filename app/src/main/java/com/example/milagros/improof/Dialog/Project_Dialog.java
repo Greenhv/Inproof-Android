@@ -2,6 +2,7 @@ package com.example.milagros.improof.Dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.view.View;
@@ -25,6 +26,8 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import com.example.milagros.improof.ProjectsActivity;
 import com.example.milagros.improof.R;
 
 import java.util.ArrayList;
@@ -69,12 +72,13 @@ public class Project_Dialog {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ((ProjectsActivity)context).getProjects();
                 dialog.dismiss();
             }
         });
 
         dialog.getWindow().setBackgroundDrawable(
-                new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                new ColorDrawable(Color.WHITE));
         dialog.show();
 
     }
@@ -94,6 +98,7 @@ public class Project_Dialog {
                         @Override
                         public void onResponse(JSONObject response) {
                             Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
+                            ((ProjectsActivity)context).getProjects();
                             dialog.dismiss();
                         }
                     },
@@ -101,6 +106,7 @@ public class Project_Dialog {
                         @Override
                         public void onErrorResponse(VolleyError  error) {
                             Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show();
+                            ((ProjectsActivity)context).getProjects();
                             dialog.dismiss();
                         }
                     });
@@ -133,6 +139,7 @@ public class Project_Dialog {
 
         } catch (Exception e) {
             //Si no hay conecction
+            ((ProjectsActivity)context).getProjects();
             dialog.dismiss();
         }
 

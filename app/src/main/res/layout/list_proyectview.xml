@@ -2,21 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="60dp"
     android:background="@color/colorframes"
     android:gravity="center"
     android:layout_margin="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:adjustViewBounds="true"
-            android:padding="5dp"
+            android:padding="6dp"
             android:src="@drawable/mendicant"
             android:layout_weight="0.2" />
 
@@ -32,13 +33,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/hour"
-            android:layout_weight="0.1" />
+            android:layout_weight="0.2" />
         <TextView
             android:text="00m"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/min"
-            android:layout_weight="0.1" />
+            android:layout_weight="0.2" />
 
     </LinearLayout>
 </LinearLayout>

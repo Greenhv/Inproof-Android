@@ -1,11 +1,13 @@
 package com.example.milagros.improof;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -37,6 +39,7 @@ public class ProjectsActivity extends AppCompatActivity {
 
     private static ArrayList<Proyecto> proyectos= new ArrayList<>();
     private String jsonResponse;
+    private ProgressDialog load;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +59,6 @@ public class ProjectsActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         getProjects();
-        populateListViewproyect();
     }
 
     private void populateListViewproyect() {
@@ -72,8 +74,13 @@ public class ProjectsActivity extends AppCompatActivity {
             }
         });
     }
-    private void getProjects(){
+    public void getProjects(){
         this.proyectos.clear();
+        load=  new ProgressDialog(ProjectsActivity.this);
+        load.setCancelable(false);
+        load.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        load.setMessage("Actualizando");
+        load.show();
         RequestQueue cola = Volley.newRequestQueue(getApplicationContext());
         String url = "https://inproof-development.herokuapp.com/projects/?user_id=1";
         JsonObjectRequest sr = new JsonObjectRequest(Request.Method.GET,url,null,
@@ -95,6 +102,8 @@ public class ProjectsActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+                        populateListViewproyect();
+                        load.dismiss();
                     }
                 },
                 new Response.ErrorListener(){
