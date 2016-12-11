@@ -41,15 +41,15 @@ public class MainActivity extends AppCompatActivity {
         ImageView avatar= (ImageView) findViewById(R.id.avatar);
         avatar.setImageResource(R.drawable.mendicant);
 
-        Button work = (Button) findViewById(R.id.work);
-        Button projects = (Button) findViewById(R.id.projects);
-        Button habits = (Button) findViewById(R.id.habits);
-        Button todo = (Button) findViewById(R.id.todo);
-        Button goals = (Button) findViewById(R.id.goals);
-        Button character = (Button) findViewById(R.id.character);
-        Button stats = (Button) findViewById(R.id.stats);
+        work = (Button) findViewById(R.id.work);
+        projects = (Button) findViewById(R.id.projects);
+        habits = (Button) findViewById(R.id.habits);
+        todo = (Button) findViewById(R.id.todo);
+        goals = (Button) findViewById(R.id.goals);
+        character = (Button) findViewById(R.id.character);
+        stats = (Button) findViewById(R.id.stats);
 
-        Button[] buttons = new Button[] {work, projects, habits, todo, goals, character, stats};
+        buttons = new Button[] {work, projects, habits, todo, goals, character, stats};
 
         habits.setOnClickListener(new View.OnClickListener() {
             @Override
