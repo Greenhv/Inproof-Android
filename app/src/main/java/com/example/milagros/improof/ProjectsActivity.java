@@ -34,9 +34,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ProjectsActivity extends AppCompatActivity {
-    private static ArrayList<Proyecto> proyectos= new ArrayList<>();
 
+    private static ArrayList<Proyecto> proyectos= new ArrayList<>();
     private String jsonResponse;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +50,7 @@ public class ProjectsActivity extends AppCompatActivity {
             }
         });
 
-        
+
     }
     @Override
     protected void onResume() {
@@ -72,6 +73,7 @@ public class ProjectsActivity extends AppCompatActivity {
         });
     }
     private void getProjects(){
+        this.proyectos.clear();
         RequestQueue cola = Volley.newRequestQueue(getApplicationContext());
         String url = "https://inproof-development.herokuapp.com/projects/?user_id=1";
         JsonObjectRequest sr = new JsonObjectRequest(Request.Method.GET,url,null,

@@ -52,7 +52,7 @@ public class Project_Dialog {
         list.add("Investigation" );
         list.add("Recreational");
         list.add("Science");
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(context,
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(context,
                 android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
@@ -83,32 +83,53 @@ public class Project_Dialog {
     public static void crearProyecto() {
         //post para el proyecto
         try {
-            final String name = txtname.getText().toString().trim();
-            String url = "https://inproof-development.herokuapp.com/projects/?user_id=1";
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                    new Response.Listener<String>() {
+            String name = txtname.getText().toString().trim();
+            JSONObject requestBody = new JSONObject();
+            requestBody.put("name", name);
+            requestBody.put("user_id", "1");
+            String url = "https://inproof-development.herokuapp.com/projects/";
+
+            JsonObjectRequest request = new JsonObjectRequest(url, requestBody,
+                    new Response.Listener<JSONObject>() {
                         @Override
-                        public void onResponse(String response) {
-                            Toast.makeText(context, response, Toast.LENGTH_LONG).show();
+                        public void onResponse(JSONObject response) {
+                            Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
                             dialog.dismiss();
                         }
                     },
-                    new Response.ErrorListener() {
+                    new Response.ErrorListener(){
                         @Override
-                        public void onErrorResponse(VolleyError error) {
+                        public void onErrorResponse(VolleyError  error) {
                             Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show();
                             dialog.dismiss();
                         }
-                    }) {
-                @Override
-                protected Map<String, String> getParams() {
-                    Map<String, String> params = new HashMap<String, String>();
-                    params.put("name", name);
-                    return params;
-                }
-            };
+                    });
+
+//            StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+//                    new Response.Listener<String>() {
+//                        @Override
+//                        public void onResponse(String response) {
+//                            Toast.makeText(context, response, Toast.LENGTH_LONG).show();
+//                            dialog.dismiss();
+//                        }
+//                    },
+//                    new Response.ErrorListener() {
+//                        @Override
+//                        public void onErrorResponse(VolleyError error) {
+//                            Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show();
+//                            dialog.dismiss();
+//                        }
+//                    }) {
+//                @Override
+//                protected Map<String, String> getParams() {
+//                    Map<String, String> params = new HashMap<>();
+//                    params.put("name", name);
+//                    params.put("user_id", "1");
+//                    return params;
+//                }
+//            };
             RequestQueue requestQueue = Volley.newRequestQueue(context);
-            requestQueue.add(stringRequest);
+            requestQueue.add(request);
 
         } catch (Exception e) {
             //Si no hay conecction

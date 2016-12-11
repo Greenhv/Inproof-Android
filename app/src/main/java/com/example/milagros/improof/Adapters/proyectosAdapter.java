@@ -35,15 +35,17 @@ public class proyectosAdapter extends ArrayAdapter<Proyecto> {
         itemView = inflater.inflate(R.layout.list_proyectview, null);
         Proyecto currentPro =pros.get(position);
 
-        TextView nombre = (TextView) itemView.findViewById(R.id.namepro);
-        nombre.setText(currentPro.getName());
-        TextView hora = (TextView) itemView.findViewById(R.id.hour);
-        TextView min = (TextView) itemView.findViewById(R.id.min);
         double time= currentPro.getTime();
         int h= (int)(time/3600);
         int m= (int)(time-h*3600);
-        hora.setText(h+"h");
-        min.setText(m+"m");
+
+        TextView nombre = (TextView) itemView.findViewById(R.id.namepro);
+        TextView hora = (TextView) itemView.findViewById(R.id.hour);
+        TextView min = (TextView) itemView.findViewById(R.id.min);
+
+        nombre.setText(currentPro.getName());
+        hora.setText(String.format("%1$d h", h));
+        min.setText(String.format("%1$d m", m));
         return itemView;
     }
 
