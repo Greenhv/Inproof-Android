@@ -1,10 +1,12 @@
 package com.example.milagros.improof;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -39,15 +41,22 @@ public class MainActivity extends AppCompatActivity {
         ImageView avatar= (ImageView) findViewById(R.id.avatar);
         avatar.setImageResource(R.drawable.mendicant);
 
-        work = (Button) findViewById(R.id.work);
-        projects = (Button) findViewById(R.id.projects);
-        habits = (Button) findViewById(R.id.habits);
-        todo = (Button) findViewById(R.id.todo);
-        goals = (Button) findViewById(R.id.goals);
-        character = (Button) findViewById(R.id.character);
-        stats = (Button) findViewById(R.id.stats);
+        Button work = (Button) findViewById(R.id.work);
+        Button projects = (Button) findViewById(R.id.projects);
+        Button habits = (Button) findViewById(R.id.habits);
+        Button todo = (Button) findViewById(R.id.todo);
+        Button goals = (Button) findViewById(R.id.goals);
+        Button character = (Button) findViewById(R.id.character);
+        Button stats = (Button) findViewById(R.id.stats);
 
-        buttons = new Button[] {work, projects, habits, todo, goals, character, stats};
+        Button[] buttons = new Button[] {work, projects, habits, todo, goals, character, stats};
+
+        habits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showHabitsSection(view);
+            }
+        });
 
         setTypeface();
     }
@@ -59,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
         for (Button button : buttons){
             button.setTypeface(font);
         }
-
     }
+
+    public void showHabitsSection(View view) {
+        Intent intent = new Intent(this, HabitsActivity.class);
+        startActivity(intent);
+    }
+
 }

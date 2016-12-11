@@ -35,9 +35,15 @@
     <string name="project">PROJECT</string>
 
     <!-- String para Projects-->
-    <string name="createproject">Start New Project</string>
+    <string name="createproject">Start a New Project</string>
     <string name="acept">Accept</string>
     <string name="cancel">Cancel</string>
 
+    <!-- String para Habits-->
+    <string name="createHabit">Start a New Habit</string>
+    <string name="goal">Goal:</string>
+    <string name="reward">Reward</string>
+    <!-- String para ToDoList-->
+    <string name="createtask">Start a New Task</string>
 
 </resources>

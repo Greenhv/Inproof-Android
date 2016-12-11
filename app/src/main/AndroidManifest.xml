@@ -23,9 +23,13 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".Work" />
-        <activity android:name=".Proyects" />
-        <activity android:name=".Habits"></activity>
+        <activity android:name=".WorkActivity" />
+        <activity android:name=".ProyectsActivity" />
+        <activity android:name=".HabitsActivity" />
+        <activity android:name=".toDoListActivity" />
+        <activity android:name=".GoalsActivity" />
+        <activity android:name=".CharacterActivity" />
+        <activity android:name=".StatsActivity"></activity>
     </application>
 
 </manifest>
