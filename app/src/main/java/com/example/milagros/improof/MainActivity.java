@@ -7,10 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.View;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+import com.example.milagros.improof.Model.Proyecto;
 
 import static android.R.attr.button;
 import static com.example.milagros.improof.R.id.todo;
@@ -40,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView avatar= (ImageView) findViewById(R.id.avatar);
         avatar.setImageResource(R.drawable.mendicant);
+        Button proyecto=(Button) findViewById(R.id.proyects);
+        proyecto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent proyect_Activity = new Intent(getApplicationContext(), ProjectsActivity.class);
+                startActivity(proyect_Activity);
+            }
+        });
 
         work = (Button) findViewById(R.id.work);
         projects = (Button) findViewById(R.id.projects);
