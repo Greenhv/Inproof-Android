@@ -17,12 +17,12 @@
         completions."
     </string>
     <!-- String para el main-->
-    <string name="toDo">To Do List</string>
-    <string name="stats">Get Stats</string>
-    <string name="mychar">My Character</string>
-    <string name="goals">Set Goals</string>
-    <string name="habits">Improve your Habits</string>
-    <string name="proyects">Manage My Projects</string>
+    <string name="toDo">to do list</string>
+    <string name="stats">get stats</string>
+    <string name="mychar">my character</string>
+    <string name="goals">set goals</string>
+    <string name="habits">improve your habits</string>
+    <string name="proyects">manage my projects</string>
 
     <!-- String para Work-->
     <string name="work">Work</string>

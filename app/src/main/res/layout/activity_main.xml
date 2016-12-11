@@ -6,20 +6,20 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
     tools:context="com.example.milagros.improof.MainActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="10dp"
         android:layout_weight="0.2"
-        android:background="@color/colorframes">
+        android:background="@color/light_gray">
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"/>
+            android:text="Name"
+            android:textSize="20sp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
@@ -29,14 +29,14 @@
                 android:layout_width="wrap_content"
                 android:padding="8dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.3"/>
+                android:src="@drawable/mendicant"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="5dp"
                 android:layout_weight="0.7"
-                android:background="@color/colorframes">
+                android:background="@color/light_gray">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -98,21 +98,23 @@
 
         </LinearLayout>
     </LinearLayout>
+
     <Button
         android:id="@+id/work"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="0.2"
-        android:layout_margin="10dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:background="@color/colorframes"
-        android:drawableStart="@drawable/mendicant"
+        android:drawableStart="@drawable/placeholder"
         android:drawablePadding="5dp"
         android:padding="8dp"
+        android:layout_margin="8dp"
         android:textAlignment="center"
-       android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@color/black"
         android:text="@string/work"/>
 
     <LinearLayout
@@ -120,87 +122,154 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="0.2">
+
+        <android.support.v4.widget.Space
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
         <Button
-            android:id="@+id/proyects"
+            android:id="@+id/projects"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
-            android:layout_margin="10dp"
             android:padding="8dp"
             android:background="@color/colorframes"
-            android:textAlignment="center"
-            android:drawableStart="@drawable/mendicant"
+            android:drawableStart="@drawable/placeholder"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:text="@string/proyects"/>
+            android:text="@string/proyects"
+            android:textAlignment="textStart"
+            android:drawablePadding="8dp"
+            android:textColor="@color/black"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
         <Button
             android:id="@+id/habits"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:padding="8dp"
-            android:layout_margin="10dp"
             android:background="@color/colorframes"
-            android:textAlignment="center"
-            android:drawableStart="@drawable/mendicant"
+            android:textAlignment="textStart"
+            android:drawableStart="@drawable/placeholder"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:text="@string/habits"/>
+            android:text="@string/habits"
+            android:drawablePadding="8dp"
+            android:textColor="@color/black"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
     </LinearLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="8dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="0.2">
+
+        <android.support.v4.widget.Space
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
         <Button
             android:id="@+id/todo"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
-            android:layout_margin="10dp"
             android:padding="8dp"
             android:background="@color/colorframes"
-            android:drawableStart="@drawable/mendicant"
+            android:drawableStart="@drawable/placeholder"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:text="@string/toDo" />
+            android:text="@string/toDo"
+            android:textAlignment="textStart"
+            android:drawablePadding="8dp"
+            android:textColor="@color/black"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
         <Button
             android:id="@+id/goals"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:padding="8dp"
-            android:layout_margin="10dp"
             android:background="@color/colorframes"
-            android:drawableStart="@drawable/mendicant"
+            android:drawableStart="@drawable/placeholder"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:text="@string/goals"/>
+            android:text="@string/goals"
+            android:textAlignment="textStart"
+            android:drawablePadding="8dp"
+            android:textColor="@color/black"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
     </LinearLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="8dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="0.2">
+
+        <android.support.v4.widget.Space
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
         <Button
             android:id="@+id/character"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:padding="8dp"
-            android:layout_margin="10dp"
             android:background="@color/colorframes"
-            android:drawableStart="@drawable/mendicant"
+            android:drawableStart="@drawable/placeholder"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:text="@string/mychar"/>
+            android:text="@string/mychar"
+            android:textAlignment="textStart"
+            android:drawablePadding="8dp"
+            android:textColor="@color/black"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
         <Button
             android:id="@+id/stats"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
-            android:layout_margin="10dp"
             android:padding="8dp"
             android:background="@color/colorframes"
-            android:drawableStart="@drawable/mendicant"
+            android:drawableStart="@drawable/placeholder"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:text="@string/stats"/>
+            android:text="@string/stats"
+            android:textAlignment="textStart"
+            android:drawablePadding="8dp"
+            android:textColor="@color/black"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
     </LinearLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="8dp" />
 
 
 </LinearLayout>
