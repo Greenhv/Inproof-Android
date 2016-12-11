@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
                 showHabitsSection(view);
             }
         });
+
+
     }
 
     public void showHabitsSection(View view) {
