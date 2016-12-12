@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView avatar= (ImageView) findViewById(R.id.avatar);
         avatar.setImageResource(R.drawable.mendicant);
-        Button proyecto=(Button) findViewById(R.id.proyects);
+        Button proyecto=(Button) findViewById(R.id.projects);
         proyecto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
