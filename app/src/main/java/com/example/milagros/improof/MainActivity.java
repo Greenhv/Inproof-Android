@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView avatar= (ImageView) findViewById(R.id.avatar);
         avatar.setImageResource(R.drawable.mendicant);
+      
         work = (Button) findViewById(R.id.work);
         projects = (Button) findViewById(R.id.projects);
         habits = (Button) findViewById(R.id.habits);
