@@ -29,13 +29,19 @@ public class HabitsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_habits);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         String wsUrl = "https://inproof-development.herokuapp.com/habits/?user_id=1";
-        this.fillHabitsList(wsUrl);
-        HabitAdapter contactAdapter = new HabitAdapter(getApplicationContext(), this.habitos);
-        this.habitsView = (ListView) findViewById(R.id.contact_list);
-        this.habitsView.setAdapter(contactAdapter)
+        fillHabitsList(wsUrl);
+    }
 
+    private void populateHabitList() {
+        HabitAdapter habitAdapter = new HabitAdapter(getApplicationContext(), this.habitos);
+        this.habitsView = (ListView) findViewById(R.id.habitList);
+        this.habitsView.setAdapter(habitAdapter);
     }
 
     public void fillHabitsList(String wsUrl) {
@@ -54,6 +60,7 @@ public class HabitsActivity extends AppCompatActivity {
                 catch(Exception e) {
                     e.printStackTrace();
                 }
+                populateHabitList();
             }
         }, new Response.ErrorListener() {
 

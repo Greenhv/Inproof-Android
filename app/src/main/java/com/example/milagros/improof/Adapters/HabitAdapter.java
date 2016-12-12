@@ -55,7 +55,24 @@ public class HabitAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         Habito habito = new Habito();
         View row;
-        row = LayoutInflater.from(mContext).inflate(R.layout.activity_character, parent, false);
+        row = LayoutInflater.from(mContext).inflate(R.layout.item_habit_layout, parent, false);
+        habito.nombre = (TextView) row.findViewById(R.id.habitName);
+        habito.meta = (TextView) row.findViewById(R.id.habitGoal);
+        habito.avance = (TextView) row.findViewById(R.id.habitCurrentI);
+        habito.experiencia = (TextView) row.findViewById(R.id.habitExp);
+        habito.bronceRecompenza = (TextView) row.findViewById(R.id.habitBronceReward);
+        habito.plataRecompenza = (TextView) row.findViewById(R.id.habitSilverReward);
+        habito.oroRecompenza = (TextView) row.findViewById(R.id.habitGoldReward);
+
+        Habit currentHabit = habitList.get(position);
+
+        habito.nombre.setText(currentHabit.getName());
+        habito.meta.setText(currentHabit.getGoalIterations());
+        habito.avance.setText(currentHabit.getCurrentIterations());
+        habito.experiencia.setText(String.format("%1$.2f",currentHabit.getExpReward()));
+        habito.bronceRecompenza.setText(currentHabit.getBronceMoneyReward());
+        habito.plataRecompenza.setText(currentHabit.getSilverMoneyReward());
+        habito.oroRecompenza.setText(currentHabit.getGoldMoneyReward());
 
         return row;
     }

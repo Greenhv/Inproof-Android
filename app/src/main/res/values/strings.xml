@@ -45,5 +45,9 @@
     <string name="reward">Reward</string>
     <!-- String para ToDoList-->
     <string name="createtask">Start a New Task</string>
-
+    <string name="habitGoalLabel">Goal:</string>
+    <string name="habitRewardLabel">Reward:</string>
+    <string name="habitSlashLabel">/</string>
+    <string name="xpLabel">xp</string>
+    <string name="habitRepetionsLabel">repetitions</string>
 </resources>

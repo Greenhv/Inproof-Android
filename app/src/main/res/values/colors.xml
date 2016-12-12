@@ -3,10 +3,10 @@
     <color name="colorPrimary">#111111</color>
     <color name="colorPrimaryDark">#222222</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorlog">#AA0000</color>
+    <color name="colorlog">#aa0000</color>
     <color name="colorframes">#D8D8D8</color>
     <color name="mana">#00AACC</color>
     <color name="black">#222222</color>
-    <color name="gray">#D8D8D8</color>
-    <color name="light_gray">#EEEEEE</color>
+    <color name="gray">#d8d8d8</color>
+    <color name="light_gray">#eeeeee</color>
 </resources>
