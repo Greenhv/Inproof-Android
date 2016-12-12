@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-
         work = (Button) findViewById(R.id.work);
         projects = (Button) findViewById(R.id.projects);
         habits = (Button) findViewById(R.id.habits);
