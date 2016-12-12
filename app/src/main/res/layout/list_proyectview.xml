@@ -18,7 +18,7 @@
             android:layout_height="45dp"
             android:adjustViewBounds="true"
             android:padding="6dp"
-            android:src="@drawable/mendicant"
+            android:src="@drawable/cash"
             android:layout_weight="0.2" />
 
         <TextView

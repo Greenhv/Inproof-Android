@@ -5,26 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:layout_margin="15dp"
+    android:layout_margin="20dp"
     tools:context="com.example.milagros.improof.WorkActivity">
-    <Chronometer
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/chrono"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:format="@string/formatTimer"
-        android:countDown="true"
-        android:textSize="40sp"/>
+        android:layout_gravity="center"
+        android:text="MM:SS"
+        android:textColor="@color/black"
+        style="@android:style/TextAppearance.Large" />
+
     <LinearLayout android:id="@+id/button_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         >
         <Button android:id="@+id/tomato_start"
             android:layout_height="wrap_content"
             android:layout_width="0dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:layout_weight="1"
             android:background="@color/colorlog"
@@ -34,8 +34,10 @@
         <Button android:id="@+id/tomato_stop"
             android:layout_height="wrap_content"
             android:layout_width="0dp"
-            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:text="@string/stop_working"
             android:visibility="gone"
             />
@@ -46,7 +48,8 @@
         android:text="@string/project"/>
     <Spinner
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/proname"
         >
     </Spinner>
     <TextView
@@ -55,7 +58,8 @@
         android:text="@string/milestone"/>
     <Spinner
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/milestone"
         >
     </Spinner>
     <TextView
@@ -66,5 +70,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold|italic"
-        android:text="2/3"/>
+        android:id="@+id/session"
+        android:text="0/3"/>
 </LinearLayout>
