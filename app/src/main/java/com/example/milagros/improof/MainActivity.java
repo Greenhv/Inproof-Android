@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
+
     Button work;
     Button projects;
     Button habits;
@@ -18,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     Button goals;
     Button character;
     Button stats;
-
     Button buttons[];
 
     @Override
@@ -43,11 +43,11 @@ public class MainActivity extends AppCompatActivity {
         ImageView avatar= (ImageView) findViewById(R.id.avatar);
         avatar.setImageResource(R.drawable.mendicant);
 
-        projects.setOnClickListener(new View.OnClickListener() {
+        work.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent proyect_Activity = new Intent(getApplicationContext(), ProjectsActivity.class);
-                startActivity(proyect_Activity);
+                Intent workAct = new Intent(getApplicationContext(), WorkActivity.class);
+                startActivity(workAct);
             }
         });
 
@@ -55,6 +55,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showHabitsSection(view);
+            }
+        });
+
+        projects.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent proyect_Activity = new Intent(getApplicationContext(), ProjectsActivity.class);
+                startActivity(proyect_Activity);
             }
         });
         setTypeface();
