@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:text="Name"
             android:textSize="20sp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
@@ -30,6 +31,7 @@
                 android:padding="8dp"
                 android:src="@drawable/mendicant"
                 android:layout_height="match_parent"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -134,7 +136,7 @@
             android:layout_weight="0.5"
             android:padding="8dp"
             android:background="@color/colorframes"
-            android:drawableStart="@drawable/placeholder"
+            android:drawableStart="@drawable/tower_flag"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:text="@string/proyects"
             android:textAlignment="textStart"
@@ -153,7 +155,7 @@
             android:padding="8dp"
             android:background="@color/colorframes"
             android:textAlignment="textStart"
-            android:drawableStart="@drawable/placeholder"
+            android:drawableStart="@drawable/profit"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:text="@string/habits"
             android:drawablePadding="8dp"
@@ -185,7 +187,7 @@
             android:layout_weight="0.5"
             android:padding="8dp"
             android:background="@color/colorframes"
-            android:drawableStart="@drawable/placeholder"
+            android:drawableStart="@drawable/scroll_unfurled"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:text="@string/toDo"
             android:textAlignment="textStart"
@@ -203,7 +205,7 @@
             android:layout_weight="0.5"
             android:padding="8dp"
             android:background="@color/colorframes"
-            android:drawableStart="@drawable/placeholder"
+            android:drawableStart="@drawable/shiny_purse"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:text="@string/goals"
             android:textAlignment="textStart"
@@ -236,7 +238,7 @@
             android:layout_weight="0.5"
             android:padding="8dp"
             android:background="@color/colorframes"
-            android:drawableStart="@drawable/placeholder"
+            android:drawableStart="@drawable/mendicant"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:text="@string/mychar"
             android:textAlignment="textStart"
@@ -254,7 +256,7 @@
             android:layout_weight="0.5"
             android:padding="8dp"
             android:background="@color/colorframes"
-            android:drawableStart="@drawable/placeholder"
+            android:drawableStart="@drawable/gift_of_knowledge"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:text="@string/stats"
             android:textAlignment="textStart"

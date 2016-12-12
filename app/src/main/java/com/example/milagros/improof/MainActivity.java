@@ -23,6 +23,7 @@ import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
 
+
     Button work;
     Button projects;
     Button habits;
@@ -30,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     Button goals;
     Button character;
     Button stats;
-
     Button buttons[];
 
     @Override
@@ -44,15 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView avatar= (ImageView) findViewById(R.id.avatar);
         avatar.setImageResource(R.drawable.mendicant);
-        Button proyecto=(Button) findViewById(R.id.projects);
-        proyecto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent proyect_Activity = new Intent(getApplicationContext(), ProjectsActivity.class);
-                startActivity(proyect_Activity);
-            }
-        });
-
+      
         work = (Button) findViewById(R.id.work);
         projects = (Button) findViewById(R.id.projects);
         habits = (Button) findViewById(R.id.habits);
@@ -63,12 +55,30 @@ public class MainActivity extends AppCompatActivity {
 
         buttons = new Button[] {work, projects, habits, todo, goals, character, stats};
 
+        work.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent workAct = new Intent(getApplicationContext(), WorkActivity.class);
+                startActivity(workAct);
+
+            }
+        });
+
         habits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showHabitsSection(view);
             }
         });
+
+        projects.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent proyect_Activity = new Intent(getApplicationContext(), ProjectsActivity.class);
+                startActivity(proyect_Activity);
+            }
+        });
+
 
         setTypeface();
     }
