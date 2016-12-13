@@ -3,6 +3,7 @@ package com.example.milagros.improof;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -19,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,7 +31,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.VolleyError;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,18 +53,25 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
+
+    private static boolean correctLogin = false;
     /**
      * Id to identity READ_CONTACTS permission request.
      */
+
     private static final int REQUEST_READ_CONTACTS = 0;
 
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
+
+    private static String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
-    };
+
+    };*/
+
+    private static ArrayList<String> DUMMY_CREDENTIALS = new ArrayList<String>();
+
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -85,7 +105,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        Button mEmailSignInButton = (Button) findViewById(R.id.email_log_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,6 +115,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        Button mSingUpButton = (Button) findViewById(R.id.email_sign_up_button);
+        mSingUpButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //activity to create a new user
+                Toast message = Toast.makeText(getApplicationContext(),"Pantalla para crear nuevo usuario",
+                        Toast.LENGTH_SHORT);
+                message.show();
+            }
+        });
     }
 
     private void populateAutoComplete() {
@@ -311,9 +342,45 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
 
+
+
+            /* -----------------------------*/
+            //aqui uso el volley
+            RequestQueue cola = Volley.newRequestQueue(getApplicationContext());
+            String url = "https://inproof-development.herokuapp.com/users/log_in?email=herbert@pucp.pe&password=yehucachame";
+            StringRequest sr = new StringRequest(url,
+                    new Response.Listener<String>(){
+                        @Override
+                        public void onResponse(String response) {
+                            Log.d("volley", response);
+                            try {
+                                JSONObject json = new JSONObject(response);
+                                JSONObject usuarios = json.getJSONObject("user");
+                                String email = (usuarios.getString("email")).toString();
+                                String pass = usuarios.getString("id").toString();
+
+                                String variable = email+":"+pass;
+
+                                DUMMY_CREDENTIALS.add(variable);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    },
+                    new Response.ErrorListener(){
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.e("volley", "Ocurrió un error!");
+                        }
+                    });
+
+            cola.add(sr);
+
             try {
                 // Simulate network access.
-                Thread.sleep(2000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 return false;
             }
@@ -322,9 +389,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 String[] pieces = credential.split(":");
                 if (pieces[0].equals(mEmail)) {
                     // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
+                    //return pieces[1].equals(mPassword);
+
+                    correctLogin = true;
                 }
             }
+
+
 
             // TODO: register the new account here.
             return true;
@@ -335,12 +406,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
 
+            Intent newActivity = new Intent(LoginActivity.this,MainActivity.class);
+            if(correctLogin)
+                startActivity(newActivity);
+            else{
+                Toast new1 = Toast.makeText(getApplicationContext(), "Email o contraseña incorrectos"+correctLogin, Toast.LENGTH_SHORT);
+                new1.show();
+            }
+            /*
             if (success) {
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
-            }
+            }*/
         }
 
         @Override
