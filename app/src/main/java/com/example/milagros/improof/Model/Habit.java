@@ -27,12 +27,12 @@ public class Habit {
     public Habit(JSONObject data) {
         try {
             String name = data.getString("name");
-            int goalI =  Integer.parseInt(data.getString("goalIterations"));
-            int currentI = Integer.parseInt(data.getString("currentIterations"));
-            double expReward = Double.parseDouble(data.getString("expReward"));
-            int bronceR = Integer.parseInt(data.getString("bronceMoneyReward"));
-            int silverR =Integer.parseInt(data.getString("silverMoneyReward"));
-            int goldR = Integer.parseInt(data.getString("goldMoneyReward"));
+            int goalI =  Integer.parseInt(data.getString("goal"));
+            int currentI = Integer.parseInt(data.getString("count"));
+            double expReward = Double.parseDouble(data.getString("exp"));
+            int bronceR = Integer.parseInt(data.getString("bronze"));
+            int silverR =Integer.parseInt(data.getString("silver"));
+            int goldR = Integer.parseInt(data.getString("gold"));
             this.setHabit(name, goalI, currentI, expReward, bronceR, silverR, goldR);
         } catch (JSONException e) {
             e.printStackTrace();

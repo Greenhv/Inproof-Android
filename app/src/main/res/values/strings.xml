@@ -52,4 +52,6 @@
     <string name="habitSlashLabel">/</string>
     <string name="xpLabel">xp</string>
     <string name="habitRepetionsLabel">repetitions</string>
+    <string name="habitIncreaseBtn">Increase</string>
+    <string name="habitDecreaseBtn">Decrease</string>
 </resources>

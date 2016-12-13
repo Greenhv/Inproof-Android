@@ -45,10 +45,12 @@ public class HabitsActivity extends AppCompatActivity {
     }
 
     public void fillHabitsList(String wsUrl) {
+        this.habitos = new ArrayList<>();
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest jsObRequest = new JsonObjectRequest(Request.Method.GET, wsUrl, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                Log.d("volley", response.toString());
                 try {
                     JSONArray habits = response.getJSONArray("habits");
                     for (int i = 0; i < habits.length() ; i++) {

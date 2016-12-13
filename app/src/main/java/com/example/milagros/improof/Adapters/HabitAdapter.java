@@ -11,6 +11,7 @@ import com.example.milagros.improof.Model.Habit;
 import com.example.milagros.improof.R;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * Created by herbert on 12/10/16.
@@ -66,13 +67,20 @@ public class HabitAdapter extends BaseAdapter {
 
         Habit currentHabit = habitList.get(position);
 
+        String meta = String.format(Locale.getDefault(), "%1$d", currentHabit.getGoalIterations());
+        String avance = String.format(Locale.getDefault(), "%1$d", currentHabit.getCurrentIterations());
+        String experiencia = String.format(Locale.getDefault(), "%1$.2f",currentHabit.getExpReward());
+        String bronce = String.format(Locale.getDefault(), "%1$d", currentHabit.getBronceMoneyReward());
+        String plata = String.format(Locale.getDefault(), "%1$d", currentHabit.getSilverMoneyReward());
+        String oro = String.format(Locale.getDefault(), "%1$d", currentHabit.getGoldMoneyReward());
+
         habito.nombre.setText(currentHabit.getName());
-        habito.meta.setText(currentHabit.getGoalIterations());
-        habito.avance.setText(currentHabit.getCurrentIterations());
-        habito.experiencia.setText(String.format("%1$.2f",currentHabit.getExpReward()));
-        habito.bronceRecompenza.setText(currentHabit.getBronceMoneyReward());
-        habito.plataRecompenza.setText(currentHabit.getSilverMoneyReward());
-        habito.oroRecompenza.setText(currentHabit.getGoldMoneyReward());
+        habito.meta.setText(meta);
+        habito.avance.setText(avance);
+        habito.experiencia.setText(experiencia);
+        habito.bronceRecompenza.setText(bronce);
+        habito.plataRecompenza.setText(plata);
+        habito.oroRecompenza.setText(oro);
 
         return row;
     }
