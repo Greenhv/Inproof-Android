@@ -24,13 +24,16 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.milagros.improof.Model.Proyecto;
+import com.example.milagros.improof.Model.SessionManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class WorkActivity extends AppCompatActivity {
@@ -47,20 +50,25 @@ public class WorkActivity extends AppCompatActivity {
     private Integer nSes;
     private Integer maxSession;
     private int projectselected;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work);
+
         start=(Button) findViewById(R.id.tomato_start);
         surrender=(Button) findViewById(R.id.tomato_stop);
         spinProject=(Spinner)findViewById(R.id.proname);
         milestone=(Spinner)findViewById(R.id.milestone);
         session= (TextView)findViewById(R.id.session);
+        sessionManager = new SessionManager(getApplicationContext());
+
         final String sessions=session.getText().toString();
         String token[]=sessions.split("/");
         nSes= Integer.parseInt(token[0]);
         maxSession= Integer.parseInt(token[1]);
+
         List<String> list2 = new ArrayList<>();
         list2.add("Part 1");
         list2.add("Part 2");
@@ -157,7 +165,9 @@ public class WorkActivity extends AppCompatActivity {
         load.setMessage("Cargando");
         load.show();
         RequestQueue cola = Volley.newRequestQueue(getApplicationContext());
-        String url = "https://inproof-development.herokuapp.com/projects/?user_id=1";
+        HashMap<String, String> user = sessionManager.getUserDetails();
+        String user_id = user.get("id");
+        String url = String.format(Locale.getDefault(), "https://inproof-development.herokuapp.com/projects/?user_id=%1$s", user_id);
         JsonObjectRequest sr = new JsonObjectRequest(Request.Method.GET,url,null,
                 new Response.Listener<JSONObject>(){
                     @Override

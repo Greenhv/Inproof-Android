@@ -8,10 +8,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.milagros.improof.Model.SessionManager;
+
+import org.w3c.dom.Text;
+
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    SessionManager session;
     Button work;
     Button projects;
     Button habits;
@@ -20,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Button character;
     Button stats;
     Button buttons[];
+    TextView user_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         stats = (Button) findViewById(R.id.stats);
 
         buttons = new Button[] {work, projects, habits, todo, goals, character, stats};
+
+        session = new SessionManager(getApplicationContext());
+
+        user_name = (TextView) findViewById(R.id.name);
 
         ImageView avatar= (ImageView) findViewById(R.id.avatar);
         avatar.setImageResource(R.drawable.mendicant);
@@ -73,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(todo_Activity);
             }
         });
+
+        HashMap<String, String> user = session.getUserDetails();
+        user_name.setText(user.get("name"));
 
         setTypeface();
     }
