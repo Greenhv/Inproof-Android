@@ -38,6 +38,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.VolleyError;
+import com.example.milagros.improof.Model.SessionManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -83,10 +84,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
 
+    // Session Manager
+    private SessionManager session;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        session = new SessionManager(getApplicationContext());
         // Set up the login form
         ImageView logo= (ImageView) findViewById(R.id.logo);
         logo.setImageResource(R.drawable.app_logo_light);
@@ -347,7 +352,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             /* -----------------------------*/
             //aqui uso el volley
             RequestQueue cola = Volley.newRequestQueue(getApplicationContext());
-            String url = "https://inproof-development.herokuapp.com/users/log_in?email=herbert@pucp.pe&password=yehucachame";
+            String url = String.format("https://inproof-development.herokuapp.com/users/log_in?email=%1$s&password=%2$s",this.mEmail, this.mPassword);
             StringRequest sr = new StringRequest(url,
                     new Response.Listener<String>(){
                         @Override
@@ -355,11 +360,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                             Log.d("volley", response);
                             try {
                                 JSONObject json = new JSONObject(response);
-                                JSONObject usuarios = json.getJSONObject("user");
-                                String email = (usuarios.getString("email")).toString();
-                                String pass = usuarios.getString("id").toString();
-
-                                String variable = email+":"+pass;
+                                JSONObject usuario = json.getJSONObject("user");
+                                String email = usuario.getString("email");
+                                String name  = usuario.getString("name");
+                                String id = usuario.getString("id");
+                                session.createLoginSession(name, email, id);
+                                String variable = email+":"+id;
 
                                 DUMMY_CREDENTIALS.add(variable);
 

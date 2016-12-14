@@ -5,25 +5,20 @@ import android.graphics.Typeface;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Window;
 import android.view.View;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import com.example.milagros.improof.Model.Proyecto;
+import com.example.milagros.improof.Model.SessionManager;
 
-import static android.R.attr.button;
-import static com.example.milagros.improof.R.id.todo;
-import static com.example.milagros.improof.R.string.project;
-import static java.security.AccessController.getContext;
+import org.w3c.dom.Text;
+
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    SessionManager session;
     Button work;
     Button projects;
     Button habits;
@@ -32,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Button character;
     Button stats;
     Button buttons[];
+    TextView user_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +38,6 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        ImageView avatar= (ImageView) findViewById(R.id.avatar);
-        avatar.setImageResource(R.drawable.mendicant);
-      
         work = (Button) findViewById(R.id.work);
         projects = (Button) findViewById(R.id.projects);
         habits = (Button) findViewById(R.id.habits);
@@ -55,12 +48,18 @@ public class MainActivity extends AppCompatActivity {
 
         buttons = new Button[] {work, projects, habits, todo, goals, character, stats};
 
+        session = new SessionManager(getApplicationContext());
+
+        user_name = (TextView) findViewById(R.id.name);
+
+        ImageView avatar= (ImageView) findViewById(R.id.avatar);
+        avatar.setImageResource(R.drawable.mendicant);
+
         work.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent workAct = new Intent(getApplicationContext(), WorkActivity.class);
                 startActivity(workAct);
-
             }
         });
 
@@ -78,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(proyect_Activity);
             }
         });
+
         todo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        HashMap<String, String> user = session.getUserDetails();
+        user_name.setText(user.get("name"));
 
         setTypeface();
     }

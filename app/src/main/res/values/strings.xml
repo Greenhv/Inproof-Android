@@ -45,9 +45,18 @@
     <string name="createHabit">Start a New Habit</string>
     <string name="goal">Goal:</string>
     <string name="reward">Reward</string>
+    <string name="habitGoalLabel">Goal:</string>
+    <string name="habitRewardLabel">Reward:</string>
+    <string name="habitSlashLabel">/</string>
+    <string name="habitRepetionsLabel">repetitions</string>
+    <string name="habitIncreaseBtn">Increase</string>
+    <string name="habitDecreaseBtn">Decrease</string>
+    <string name="newHabitTitle">Ingrese el nuevo Habito</string>
+    <string name="newHabitName">Name:</string>
+    <string name="newHabitGoal">Goal:</string>
+    <string name="xpLabel">xp</string>
     <!-- String para ToDoList-->
     <string name="createtask">Start a New Task</string>
     <string name="task">Describe your new task to do: </string>
     <string name="endtask">End task</string>
-
 </resources>

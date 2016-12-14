@@ -45,11 +45,7 @@ public class toDoListActivity extends AppCompatActivity {
                 Intent taskactivity = new Intent(getApplicationContext(), TaskActivity.class);
                 taskactivity.putExtra("tarea",Tareas.tareas().get(position));
                 startActivity(taskactivity);
-
             }
         });
-
-
     }
-
 }
