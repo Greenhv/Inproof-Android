@@ -8,6 +8,6 @@
     <color name="scroll">#D5BF86</color>
     <color name="mana">#00AACC</color>
     <color name="black">#222222</color>
-    <color name="gray">#d8d8d8</color>
-    <color name="light_gray">#eeeeee</color>
+    <color name="gray">#D8D8D8</color>
+    <color name="light_gray">#EEEEEE</color>
 </resources>

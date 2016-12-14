@@ -54,9 +54,9 @@
     <string name="newHabitTitle">Ingrese el nuevo Habito</string>
     <string name="newHabitName">Name:</string>
     <string name="newHabitGoal">Goal:</string>
+    <string name="xpLabel">xp</string>
     <!-- String para ToDoList-->
     <string name="createtask">Start a New Task</string>
-    <string name="xpLabel">xp</string>
     <string name="task">Describe your new task to do: </string>
     <string name="endtask">End task</string>
 </resources>
