@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Chronometer;
@@ -45,6 +46,7 @@ public class WorkActivity extends AppCompatActivity {
     ProgressDialog load;
     private Integer nSes;
     private Integer maxSession;
+    private int projectselected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,7 @@ public class WorkActivity extends AppCompatActivity {
         chronotext.setText("25:00");
 
 
+
         chrono=new CountDownTimer(1500000, 1000) { // adjust the milli seconds here
 
             public void onTick(long millisUntilFinished) {
@@ -89,14 +92,29 @@ public class WorkActivity extends AppCompatActivity {
                 chronotext.setText("25:00");
                 start.setVisibility(View.VISIBLE);
                 surrender.setVisibility(View.GONE);
+                double a= proyectos.get(projectselected).getTime();
+                proyectos.get(projectselected).setTime(a+25*60);// segundos
             }
         };
+        spinProject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                projectselected=i;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 chrono.start();
                 start.setVisibility(View.GONE);
                 surrender.setVisibility(View.VISIBLE);
+                milestone.setEnabled(false);
+                spinProject.setEnabled(false);
             }
         });
         surrender.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +126,8 @@ public class WorkActivity extends AppCompatActivity {
                 chrono.cancel();
                 start.setVisibility(View.VISIBLE);
                 surrender.setVisibility(View.GONE);
+                milestone.setEnabled(true);
+                spinProject.setEnabled(true);
             }
         });
 
@@ -134,7 +154,7 @@ public class WorkActivity extends AppCompatActivity {
         load=  new ProgressDialog(WorkActivity.this);
         load.setCancelable(false);
         load.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        load.setMessage("Actualizando");
+        load.setMessage("Cargando");
         load.show();
         RequestQueue cola = Volley.newRequestQueue(getApplicationContext());
         String url = "https://inproof-development.herokuapp.com/projects/?user_id=1";
@@ -149,8 +169,8 @@ public class WorkActivity extends AppCompatActivity {
                                 JSONObject proyecto = (JSONObject) projects.get(i);
                                 Proyecto p = new Proyecto();
                                 p.setName(proyecto.getString("name"));
-                                p.setCategory("Science");
-                                p.setTime(0.0);
+                                p.setCategory(proyecto.getString("category"));
+                                p.setTime(proyecto.getDouble("time"));
                                 proyectos.add(p);
                             }
 
@@ -175,5 +195,4 @@ public class WorkActivity extends AppCompatActivity {
         cola.add(sr);
 
     }
-
 }

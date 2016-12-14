@@ -12,7 +12,9 @@
     tools:context="com.example.milagros.improof.toDoListActivity">
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:id="@+id/listtodo">
 
     </ListView>
     <Button
