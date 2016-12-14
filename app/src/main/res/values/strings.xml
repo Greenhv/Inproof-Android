@@ -47,5 +47,7 @@
     <string name="reward">Reward</string>
     <!-- String para ToDoList-->
     <string name="createtask">Start a New Task</string>
+    <string name="task">Describe your new task to do: </string>
+    <string name="endtask">End task</string>
 
 </resources>

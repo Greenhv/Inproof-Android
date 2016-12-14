@@ -30,7 +30,9 @@
         <activity android:name=".toDoListActivity" />
         <activity android:name=".GoalsActivity" />
         <activity android:name=".CharacterActivity" />
-        <activity android:name=".StatsActivity"></activity>
+        <activity android:name=".StatsActivity" />
+        <activity android:name=".NewTaskActivity" />
+        <activity android:name=".TaskActivity"></activity>
     </application>
 
 </manifest>

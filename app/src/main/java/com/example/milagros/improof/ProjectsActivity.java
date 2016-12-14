@@ -94,8 +94,8 @@ public class ProjectsActivity extends AppCompatActivity {
                                 JSONObject proyecto = (JSONObject) projects.get(i);
                                 Proyecto p = new Proyecto();
                                 p.setName(proyecto.getString("name"));
-                                p.setCategory("Science");
-                                p.setTime(0.0);
+                                p.setCategory(proyecto.getString("category"));
+                                p.setTime(proyecto.getDouble("time"));
                                 proyectos.add(p);
                             }
 
