@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,6 +43,7 @@ public class Project_Dialog {
     public static Context context;
     public  static EditText txtname;
     public  static Spinner spinner;
+    public static String cat="" ;
 
     public static void dialog(final Context _context) {
         context = _context;
@@ -50,11 +52,12 @@ public class Project_Dialog {
         dialog.setContentView(R.layout.new_project);
         txtname = (EditText) dialog.findViewById(R.id.nombreproyect);
         spinner = (Spinner) dialog.findViewById(R.id.category);
-        List<String> list = new ArrayList<>();
+        final List<String> list = new ArrayList<>();
         list.add("Cultural");
         list.add("Investigation" );
         list.add("Recreational");
         list.add("Science");
+        list.add("Language");
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(context,
                 android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -76,6 +79,17 @@ public class Project_Dialog {
                 dialog.dismiss();
             }
         });
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                cat=list.get(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                cat="";
+            }
+        });
 
         dialog.getWindow().setBackgroundDrawable(
                 new ColorDrawable(Color.WHITE));
@@ -90,6 +104,8 @@ public class Project_Dialog {
             String name = txtname.getText().toString().trim();
             JSONObject requestBody = new JSONObject();
             requestBody.put("name", name);
+            requestBody.put("category", cat);
+            requestBody.put("time", "0.0");
             requestBody.put("user_id", "1");
             String url = "https://inproof-development.herokuapp.com/projects/";
 

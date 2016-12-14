@@ -65,6 +65,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(proyect_Activity);
             }
         });
+
+        todo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent todo_Activity = new Intent(getApplicationContext(), toDoListActivity.class);
+                startActivity(todo_Activity);
+            }
+        });
+
         setTypeface();
     }
 

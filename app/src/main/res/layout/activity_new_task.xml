@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_new_task"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    tools:context="com.example.milagros.improof.NewTaskActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/scroll_unfurled"
+        android:padding="20dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/task"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/scroll"
+        android:layout_margin="15dp"
+        android:textAlignment="center"
+        android:text="@string/endtask"
+        android:id="@+id/dotask"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnAceptar"
+            android:background="@color/colorlog"
+            android:layout_weight="0.5"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/acept"/>
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:background="@color/gray"
+            android:layout_weight="0.5"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/cancel"/>
+
+    </LinearLayout>
+
+</LinearLayout>
