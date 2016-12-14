@@ -54,4 +54,7 @@
     <string name="habitRepetionsLabel">repetitions</string>
     <string name="habitIncreaseBtn">Increase</string>
     <string name="habitDecreaseBtn">Decrease</string>
+    <string name="newHabitTitle">Ingrese el nuevo Habito</string>
+    <string name="newHabitName">Name:</string>
+    <string name="newHabitGoal">Goal:</string>
 </resources>

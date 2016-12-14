@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.example.milagros.improof.Model.Habit;
 import com.example.milagros.improof.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -44,7 +46,8 @@ public class HabitAdapter extends BaseAdapter {
 
     public class Habito {
         TextView nombre;
-        TextView meta;
+        TextView metaTop;
+        TextView metaBottom;
         TextView avance;
         TextView experiencia;
         TextView bronceRecompenza;
@@ -58,7 +61,8 @@ public class HabitAdapter extends BaseAdapter {
         View row;
         row = LayoutInflater.from(mContext).inflate(R.layout.item_habit_layout, parent, false);
         habito.nombre = (TextView) row.findViewById(R.id.habitName);
-        habito.meta = (TextView) row.findViewById(R.id.habitGoal);
+        habito.metaTop = (TextView) row.findViewById(R.id.habitGoalTop);
+        habito.metaBottom = (TextView) row.findViewById(R.id.habitGoalBottom);
         habito.avance = (TextView) row.findViewById(R.id.habitCurrentI);
         habito.experiencia = (TextView) row.findViewById(R.id.habitExp);
         habito.bronceRecompenza = (TextView) row.findViewById(R.id.habitBronceReward);
@@ -75,7 +79,8 @@ public class HabitAdapter extends BaseAdapter {
         String oro = String.format(Locale.getDefault(), "%1$d", currentHabit.getGoldMoneyReward());
 
         habito.nombre.setText(currentHabit.getName());
-        habito.meta.setText(meta);
+        habito.metaTop.setText(meta);
+        habito.metaBottom.setText(meta);
         habito.avance.setText(avance);
         habito.experiencia.setText(experiencia);
         habito.bronceRecompenza.setText(bronce);
