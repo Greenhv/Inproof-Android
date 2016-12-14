@@ -29,8 +29,8 @@
                 android:id="@+id/avatar"
                 android:layout_width="wrap_content"
                 android:padding="8dp"
-                android:src="@drawable/mendicant"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:src="@drawable/mendicant"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

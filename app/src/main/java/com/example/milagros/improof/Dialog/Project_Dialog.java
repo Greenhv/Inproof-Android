@@ -44,14 +44,17 @@ public class Project_Dialog {
     public  static EditText txtname;
     public  static Spinner spinner;
     public static String cat="" ;
+    public static String user_id;
 
-    public static void dialog(final Context _context) {
+    public static void dialog(final Context _context, String id) {
         context = _context;
         dialog = new Dialog(_context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.new_project);
         txtname = (EditText) dialog.findViewById(R.id.nombreproyect);
         spinner = (Spinner) dialog.findViewById(R.id.category);
+        user_id = id;
+
         final List<String> list = new ArrayList<>();
         list.add("Cultural");
         list.add("Investigation" );
@@ -106,7 +109,7 @@ public class Project_Dialog {
             requestBody.put("name", name);
             requestBody.put("category", cat);
             requestBody.put("time", "0.0");
-            requestBody.put("user_id", "1");
+            requestBody.put("user_id", user_id);
             String url = "https://inproof-development.herokuapp.com/projects/";
 
             JsonObjectRequest request = new JsonObjectRequest(url, requestBody,
@@ -126,30 +129,6 @@ public class Project_Dialog {
                             dialog.dismiss();
                         }
                     });
-
-//            StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-//                    new Response.Listener<String>() {
-//                        @Override
-//                        public void onResponse(String response) {
-//                            Toast.makeText(context, response, Toast.LENGTH_LONG).show();
-//                            dialog.dismiss();
-//                        }
-//                    },
-//                    new Response.ErrorListener() {
-//                        @Override
-//                        public void onErrorResponse(VolleyError error) {
-//                            Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show();
-//                            dialog.dismiss();
-//                        }
-//                    }) {
-//                @Override
-//                protected Map<String, String> getParams() {
-//                    Map<String, String> params = new HashMap<>();
-//                    params.put("name", name);
-//                    params.put("user_id", "1");
-//                    return params;
-//                }
-//            };
             RequestQueue requestQueue = Volley.newRequestQueue(context);
             requestQueue.add(request);
 

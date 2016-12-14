@@ -28,32 +28,41 @@ import com.android.volley.toolbox.Volley;
 import com.example.milagros.improof.Adapters.proyectosAdapter;
 import com.example.milagros.improof.Dialog.Project_Dialog;
 import com.example.milagros.improof.Model.Proyecto;
+import com.example.milagros.improof.Model.SessionManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Locale;
 
 public class ProjectsActivity extends AppCompatActivity {
 
     private static ArrayList<Proyecto> proyectos= new ArrayList<>();
     private String jsonResponse;
     private ProgressDialog load;
+    private SessionManager session;
+    private String user_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_proyects);
+
         final Button button= (Button) findViewById(R.id.newpro);
+
+        session = new SessionManager(getApplicationContext());
+        HashMap<String, String> user = session.getUserDetails();
+        user_id = user.get("id");
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Project_Dialog.dialog(ProjectsActivity.this);
+                Project_Dialog.dialog(ProjectsActivity.this, user_id);
             }
         });
-
-
     }
     @Override
     protected void onResume() {
@@ -75,14 +84,14 @@ public class ProjectsActivity extends AppCompatActivity {
         });
     }
     public void getProjects(){
-        this.proyectos.clear();
-        load=  new ProgressDialog(ProjectsActivity.this);
+        proyectos = new ArrayList<>();
+        load = new ProgressDialog(ProjectsActivity.this);
         load.setCancelable(false);
         load.requestWindowFeature(Window.FEATURE_NO_TITLE);
         load.setMessage("Actualizando");
         load.show();
         RequestQueue cola = Volley.newRequestQueue(getApplicationContext());
-        String url = "https://inproof-development.herokuapp.com/projects/?user_id=1";
+        String url = String.format(Locale.getDefault(),"https://inproof-development.herokuapp.com/projects/?user_id=%1$s", user_id);
         JsonObjectRequest sr = new JsonObjectRequest(Request.Method.GET,url,null,
                 new Response.Listener<JSONObject>(){
                     @Override

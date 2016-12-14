@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/textView2">
+
+    <TextView
+        android:text="@string/createHabit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:background="@color/colorlog"
+        android:textColor="@color/colorframes"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="@string/newHabitName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:id="@+id/textView2"
+        android:textSize="14sp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="22dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/newHabitName"
+        android:layout_marginStart="32dp"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2" />
+
+    <TextView
+        android:text="@string/newHabitGoal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newHabitName"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginTop="22dp"
+        android:id="@+id/textView3" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/newHabitGoalCount"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignStart="@+id/newHabitName" />
+
+    <Button
+        android:text="@string/acept"
+        android:layout_height="wrap_content"
+        android:id="@+id/newHabitAccept"
+        android:layout_marginTop="22dp"
+        android:layout_width="150dp"
+        android:background="@color/colorlog"
+        android:textColor="@color/light_gray"
+        android:layout_below="@+id/newHabitGoalCount"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="@string/cancel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/newHabitCancel"
+        android:background="@color/light_gray"
+        android:textColor="@color/black"
+        android:layout_alignBaseline="@+id/newHabitAccept"
+        android:layout_alignBottom="@+id/newHabitAccept"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
